@@ -1,6 +1,8 @@
+// components
 import '@/assets/styles/globals.css' // @ - root
+import NavBar from '@/components/navbar.component'
 
-// add metadata
+// Metadata
 export const metadata = {
   title: 'MyHub | Find the Perfect Rental',
   description: 'Find your dream rental property within minutes.',
@@ -11,7 +13,8 @@ const MainLayout = ({ children }) => {
   return (
     <html lang='en'>
       <body>
-        <div>{children}</div>
+        <NavBar />
+        <main>{children}</main>
       </body>
     </html>
   )
