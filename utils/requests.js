@@ -30,3 +30,19 @@ export const fetchProperties = async () => {
     return []
   }
 }
+
+// fetch single property
+export const fetchProperty = async (id) => {
+  try {
+    if (!apiDomain) return null
+
+    const res = await fetch(`${apiDomain}/properties/${id}`)
+
+    if (!res.ok) throw new Error('Could not fetch property')
+
+    return res.json()
+  } catch (error) {
+    console.log(error?.message)
+    return null
+  }
+}
