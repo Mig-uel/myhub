@@ -28,7 +28,6 @@ const PropertyCard = ({
     else if (rates.weekly) return `${rates.weekly.toLocaleString()}/wk`
     else if (rates.nightly) return `${rates.nightly.toLocaleString()}/night`
   }
-  console.log(images[0])
 
   return (
     <div className='rounded-xl shadow-md relative'>
