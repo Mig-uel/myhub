@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 // assets
-import properties from '@/properties.json'
+import properties from '@/data/properties.json'
 import PropertyCard from './property-card.component'
 
 const HomeProperties = () => {
