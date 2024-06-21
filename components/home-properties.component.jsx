@@ -1,19 +1,8 @@
 import Link from 'next/link'
+import { fetchProperties } from '@/utils/requests'
 
 // components
 import PropertyCard from './property-card.component'
-
-const fetchProperties = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`)
-
-    if (!res.ok) throw new Error('Could not fetch properties')
-
-    return res.json()
-  } catch (error) {
-    console.log(error?.message)
-  }
-}
 
 const HomeProperties = async () => {
   const properties = await fetchProperties()
@@ -30,7 +19,7 @@ const HomeProperties = async () => {
             Recent Properties
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-            {recentProperties.length === 0 ? (
+            {!recentProperties || recentProperties.length === 0 ? (
               <p>No properties found...</p>
             ) : (
               recentProperties.map((property) => (
