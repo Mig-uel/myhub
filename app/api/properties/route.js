@@ -1,9 +1,9 @@
 import { connectDB } from '@/config/db.config'
 import Property from '@/models/property.model'
-
-const sendJSONWithStatusResponse = (obj, status) => {
-  return new Response(JSON.stringify(obj), { status })
-}
+import {
+  sendJSONWithStatusResponse,
+  sendErrorJSONWithStatusResponse,
+} from '@/utils/requests'
 
 // GET /api/properties
 export const GET = async (request) => {
@@ -17,9 +17,6 @@ export const GET = async (request) => {
     return sendJSONWithStatusResponse(properties, 200)
   } catch (error) {
     console.log(error)
-    return sendJSONWithStatusResponse(
-      { message: `${error.message || 'Something went wrong'}` },
-      404
-    )
+    return sendErrorJSONWithStatusResponse(error, 404)
   }
 }
