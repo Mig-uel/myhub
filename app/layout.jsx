@@ -1,5 +1,6 @@
 // components
 import '@/assets/styles/globals.css' // @ - root
+import Footer from '@/components/footer.component'
 import NavBar from '@/components/navbar.component'
 
 // Metadata
@@ -15,6 +16,7 @@ const MainLayout = ({ children }) => {
       <body>
         <NavBar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
