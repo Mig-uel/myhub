@@ -7,7 +7,9 @@ export const connectDB = async () => {
 
   // if db already connected, don't connect again
   if (connected) {
-    console.log(`ALREADY CONNECTED TO: ${mongoose.connection.name}`)
+    console.log(
+      `ALREADY CONNECTED TO: ${mongoose.connection.name}`.yellow.inverse
+    )
     return
   }
 
