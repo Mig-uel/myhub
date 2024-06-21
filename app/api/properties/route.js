@@ -1,16 +1,25 @@
 import { connectDB } from '@/config/db.config'
+import Property from '@/models/property.model'
 
 const sendJSONWithStatusResponse = (obj, status) => {
   return new Response(JSON.stringify(obj), { status })
 }
 
+// GET /api/properties
 export const GET = async (request) => {
   try {
     await connectDB()
 
-    return sendJSONWithStatusResponse({ message: 'Hello world!' }, 200)
+    const properties = await Property.find({})
+
+    if (!properties) throw new Error('No properties found')
+
+    return sendJSONWithStatusResponse(properties, 200)
   } catch (error) {
     console.log(error)
-    return new Response('Something went wrong', { status: 500 })
+    return sendJSONWithStatusResponse(
+      { message: `${error.message || 'Something went wrong'}` },
+      404
+    )
   }
 }
