@@ -209,6 +209,10 @@ const NavBar = () => {
                       Saved Properties
                     </Link>
                     <button
+                      onClick={() => {
+                        setIsMobileMenuOpen((prev) => !prev)
+                        signOut()
+                      }}
                       className='block px-4 py-2 text-sm text-gray-700'
                       role='menuitem'
                       tabIndex='-1'
