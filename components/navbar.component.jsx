@@ -196,6 +196,7 @@ const NavBar = () => {
                       role='menuitem'
                       tabIndex='-1'
                       id='user-menu-item-0'
+                      onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                     >
                       Your Profile
                     </Link>
@@ -205,12 +206,13 @@ const NavBar = () => {
                       role='menuitem'
                       tabIndex='-1'
                       id='user-menu-item-2'
+                      onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                     >
                       Saved Properties
                     </Link>
                     <button
                       onClick={() => {
-                        setIsMobileMenuOpen((prev) => !prev)
+                        setIsProfileMenuOpen((prev) => !prev)
                         signOut()
                       }}
                       className='block px-4 py-2 text-sm text-gray-700'
@@ -238,6 +240,7 @@ const NavBar = () => {
               className={`${
                 pathname === '/' ? 'bg-black' : ''
               } text-white block rounded-md px-3 py-2 text-base font-medium`}
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
               Home
             </Link>
@@ -246,6 +249,7 @@ const NavBar = () => {
               className={`${
                 pathname === '/properties' ? 'bg-black' : ''
               } text-white block rounded-md px-3 py-2 text-base font-medium`}
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
               Properties
             </Link>
@@ -255,6 +259,7 @@ const NavBar = () => {
                 className={`${
                   pathname === '/properties/add' ? 'bg-black' : ''
                 } text-white block rounded-md px-3 py-2 text-base font-medium`}
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               >
                 Add Property
               </Link>
