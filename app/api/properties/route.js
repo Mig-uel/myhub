@@ -20,3 +20,15 @@ export const GET = async (request) => {
     return sendErrorJSONWithStatusResponse(error, 404)
   }
 }
+
+// POST /api/properties
+export const POST = async (request) => {
+  try {
+    const formData = await request.forData()
+
+    return sendJSONWithStatusResponse({ message: 'Success' }, 200)
+  } catch (error) {
+    console.log(error)
+    return sendErrorJSONWithStatusResponse(error, 404)
+  }
+}
