@@ -62,8 +62,6 @@ export const addProperty = async (data) => {
         )
 
         imageUploadPromises.push(result.secure_url)
-        // console.log(pair[1])
-        // property[pair[0]].push(pair[1].name)
       }
     } else if (
       pair[0] !== '$ACTION_ID_36305833e9ab8a73da44d046a249ceff02ec590f'
