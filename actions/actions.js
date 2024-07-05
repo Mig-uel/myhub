@@ -75,8 +75,6 @@ export const addProperty = async (data) => {
   const uploadedImages = await Promise.all(imageUploadPromises)
   property.images = uploadedImages
 
-  console.log(property)
-
   // upload to db
   const newProperty = new Property(property)
   await newProperty.save()
